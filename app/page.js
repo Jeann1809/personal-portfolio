@@ -15,35 +15,59 @@ export default function Home() {
   // Project data
   const projects = [
     {
-      id: 1,
-      title: 'Full-Stack E-Commerce',
-      period: 'January 2025 - Present',
-      description: 'Developed and deployed a production-ready MERN/Next.js e-commerce platform with JWT authentication, role-based access, and payment integration. Built RESTful API for products, users, carts, and orders, and implemented an admin dashboard with search, filtering, and performance optimizations, achieving 20+ live sales.',
-      techStack: ['RESTful API', 'Next.js', 'JWT authentication','MongoDB', 'Express.js', 'React', 'Node.js', 'JWT', 'Stripe'],
-      features: [
-        'Role-based access control (Admin/Customer)',
-        'JWT authentication and authorization',
-        'Product catalog with search and filters',
-        'Shopping cart and checkout system',
-        'Payment integration with Stripe',
-        'Admin dashboard for inventory management',
-        'Order tracking and management'
-      ],
-      achievements: [
-        '20+ completed sales on live site',
-        'Optimized frontend bundle and API caching',
-        'Improved page load performance'
-      ],
-      images: [
-        '/ecommerce-1.jpg',
-        '/ecommerce-2.jpg',
-        '/ecommerce-3.jpg'
-      ],
-      github: 'https://github.com/yourusername/ecommerce-app',
-      liveDemo: 'https://your-ecommerce-app.com'
+      "id": 1,
+    "title": "Full-Stack E-Commerce Frontend",
+    "description": "Developed a responsive, production-ready e-commerce frontend using Next.js and React, integrating with the backend API for full functionality.",
+    "techStack": ["Next.js", "React", "RESTful API", "JWT authentication", "Stripe"],
+    "features": [
+      "Product catalog with search, filters, and pagination",
+      "Shopping cart & checkout system",
+      "Admin dashboard for inventory management and order tracking",
+      "Responsive design for mobile and desktop",
+      "Optimized for performance and SEO"
+    ],
+    "achievements": [
+      "Optimized frontend bundle and API caching for faster load",
+      "Improved page load performance",
+      "Enabled seamless real-time interaction with backend"
+    ],
+    "images": [
+      "https://i.imgur.com/0s7ZIka.png",
+      "https://i.imgur.com/kkX2iPW.png",
+      "https://i.imgur.com/1iZDd0t.png",
+      "https://i.imgur.com/MUPCzyC.png",
+      'https://i.imgur.com/Yt2A0i1.png',
+      "https://i.imgur.com/PBxCWfn.png"
+    ],
+    "github": "https://github.com/Jeann1809/crochet-frontend",
+    "visitPage": "https://www.marimarcrochet.com"
     },
     {
-      id: 2,
+      "id": 2,
+      "title": "Full-Stack E-Commerce Backend",
+      "description": "Built a RESTful API with Node.js and Express to handle all e-commerce operations, including products, users, carts, orders, and admin functionalities.",
+      "techStack": ["Node.js", "Express.js", "MongoDB", "Mongoose", "JWT authentication", "Stripe"],
+      "features": [
+        "Role-based access control (Admin / Customer)",
+        "CRUD operations for products and users",
+        "Cart management and order processing",
+        "Admin dashboard API endpoints for inventory and order tracking",
+        "Secure authentication and authorization for different user roles"
+      ],
+      "achievements": [
+        "Successfully supported 20+ live sales",
+        "Implemented caching and optimized database queries for better performance",
+        "Secure authentication and authorization for different user roles"
+      ],
+      "images": [
+        'https://i.imgur.com/7KBo7Xk.png',
+        'https://i.imgur.com/qzeGr5Q.png',
+      ],
+      "github": "https://github.com/Jeann1809/crochet-ecommerce-backend",
+
+    },
+    {
+      id: 3,
       title: 'Wine Quality Prediction',
       period: 'December 2023 - January 2024',
       description: 'Built a machine learning model in Python to classify wine quality using chemical features. Implemented logistic regression with gradient descent, performed EDA and preprocessing, and evaluated performance with scikit-learn metrics, achieving 76% accuracy and 0.77 F1-score.',
@@ -72,7 +96,7 @@ export default function Home() {
       github: 'https://github.com/Jeann1809/Wine-Quality-Predictor'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Web Developer Intern',
       period: 'May 2024 - July 2024',
       description: 'Contributed to the company\'s platform by developing responsive Angular frontend features and building a Node.js/Express backend module to automate PDF-to-Excel reporting. Improved operational efficiency and collaborated in an Agile team using Git and code reviews to deliver production-ready solutions.',
@@ -307,10 +331,15 @@ export default function Home() {
                   )}
                   {project.id === 2 && (
                     <span className="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
-                      ML Project • 2024
+                      RESTful API • 2025
                     </span>
                   )}
                   {project.id === 3 && (
+                    <span className="inline-block bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
+                      ML Project • 2024
+                    </span>
+                  )}
+                  {project.id === 4 && (
                     <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
                       Internship • HSE Colombia
                     </span>
