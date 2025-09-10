@@ -133,6 +133,32 @@ export default function Home() {
         'https://i.imgur.com/CIjnFIR.png'
       ],
       visitPage: 'https://hse-colombia.com'
+    },
+    {
+      "id": 5,
+      "title": "Reinforcement Learning Snake Game",
+      "period": "January 2025 - Present",
+      "description": "Developed a Deep Q-Learning AI agent that learns to play Snake through trial and error. Implemented a neural network using PyTorch to approximate Q-values, with real-time visualization and experience replay for efficient learning.",
+      "techStack": ["Python", "PyTorch", "Pygame", "Matplotlib", "NumPy", "Deep Q-Learning", "Neural Networks", "Reinforcement Learning", "Experience Replay", "Epsilon-Greedy Strategy"],
+      "features": [
+        "Deep Q-Learning algorithm with neural network approximation",
+        "Real-time game visualization with clean UI design",
+        "11-dimensional state representation for game perception",
+        "Experience replay buffer for efficient learning",
+        "Epsilon-greedy exploration strategy",
+        "Automatic model saving for best performance",
+        "Real-time training progress visualization"
+      ],
+      "achievements": [
+        "Agent learns to achieve scores of 15-30+ after 200+ games",
+        "Implemented complex relative direction logic for state representation",
+        "Balanced exploration vs exploitation with epsilon-greedy strategy",
+        "Created stable plotting system without threading conflicts"
+      ],
+      "images": [
+        "https://i.imgur.com/rlfosHp.png"
+      ],
+      "github": "https://github.com/Jeann1809/reinforcement-learning-snake"
     }
   ]
 
@@ -382,6 +408,11 @@ export default function Home() {
                    {project.id === 4 && (
                      <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
                        Internship • HSE Colombia
+                     </span>
+                   )}
+                   {project.id === 5 && (
+                     <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
+                       Reinforcement Learning • 2025
                      </span>
                    )}
                  </div>
