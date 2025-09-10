@@ -151,9 +151,7 @@ export default function Home() {
       ],
       "achievements": [
         "Agent learns to achieve scores of 15-30+ after 200+ games",
-        "Implemented complex relative direction logic for state representation",
         "Balanced exploration vs exploitation with epsilon-greedy strategy",
-        "Created stable plotting system without threading conflicts"
       ],
       "images": [
         "https://i.imgur.com/rlfosHp.png"
