@@ -162,6 +162,30 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               Project Links
             </h3>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+              {project.githubFrontend && (
+                <a
+                  href={project.githubFrontend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-2 bg-charcoal text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg hover:bg-soft-black transition-colors w-full sm:w-auto"
+                >
+                  <span>📁</span>
+                  <span>Frontend Repo</span>
+                </a>
+              )}
+
+              {project.githubBackend && (
+                <a
+                  href={project.githubBackend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-2 bg-charcoal text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg hover:bg-soft-black transition-colors w-full sm:w-auto"
+                >
+                  <span>🧩</span>
+                  <span>Backend Repo</span>
+                </a>
+              )}
+
               {project.github && (
                 <a
                   href={project.github}

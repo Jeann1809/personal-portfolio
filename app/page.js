@@ -109,7 +109,7 @@ export default function Home() {
     },
     {
       id: 4,
-      title: 'Web Developer Intern',
+      title: 'Software Engineer Intern',
       period: 'May 2024 - July 2024',
               description: "Contributed to the company's platform by developing responsive Angular frontend features and building a Node.js/Express backend module to automate PDF-to-Excel reporting. Improved operational efficiency and collaborated in an Agile team using Git and code reviews to deliver production-ready solutions.",
       techStack: ['Angular', 'Node.js', 'Express.js', 'Git', 'Agile', 'PDF-to-Excel', 'Excel file generation', 'Responsive web design', 'Git version control', 'Code reviews'],
@@ -201,7 +201,8 @@ export default function Home() {
         "https://i.imgur.com/q4tM7Qo.png",
         "https://i.imgur.com/nBHDQgE.png"
       ],
-      "github": "https://github.com/your-username/AnyTongue"
+      "githubFrontend": "https://github.com/Jeann1809/AnyTongueFrontend",
+      "githubBackend": "https://github.com/MEMOMG8/AnyTongueBackEnd"
     }
   ]
 
@@ -402,7 +403,7 @@ export default function Home() {
                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover-lift">
                  <h3 className="text-xl sm:text-2xl font-elegant font-semibold text-charcoal mb-4 sm:mb-6">Skills & Technologies</h3>
                  <div className="space-y-3 sm:space-y-4">
-                   {['Python', 'Java', 'C', 'JavaScript', 'React','Next.js', 'Node.js', 'JWT', 'AWS'].map((skill, index) => (
+                   {['Python', 'Java', 'C / C++', 'JavaScript', 'React','Next.js', 'Node.js', 'JWT', 'AWS'].map((skill, index) => (
                      <div key={skill} className="flex items-center space-x-3">
                        <div className="w-2 h-2 bg-charcoal rounded-full"></div>
                        <span className="text-sm sm:text-base text-gray-700 font-sans font-medium">{skill}</span>
