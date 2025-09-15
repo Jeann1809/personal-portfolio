@@ -475,8 +475,8 @@ export default function Home() {
                    ))}
                  </div>
                  
-                 {/* Hover overlay with "View Details" */}
-                 <div className="absolute inset-0 bg-charcoal/90 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                 {/* Hover overlay with "View Details" - Desktop only */}
+                 <div className="hidden md:flex absolute inset-0 bg-charcoal/90 rounded-2xl items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                    <div className="text-center text-white">
                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -489,11 +489,19 @@ export default function Home() {
                    </div>
                  </div>
                  
-                 {/* Subtle corner indicator */}
-                 <div className="absolute top-4 right-4 w-6 h-6 bg-charcoal/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                 {/* Desktop corner indicator - hover only */}
+                 <div className="hidden md:block absolute top-4 right-4 w-6 h-6 bg-charcoal/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                    <svg className="w-3 h-3 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                    </svg>
+                 </div>
+                 
+                 {/* Mobile tap indicator - top right */}
+                 <div className="md:hidden absolute top-3 right-3 flex items-center space-x-1 text-xs text-gray-500 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
+                   <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                   </svg>
+                   <span className="font-medium text-xs">Tap</span>
                  </div>
                </div>
              ))}
