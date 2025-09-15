@@ -157,6 +157,51 @@ export default function Home() {
         "https://i.imgur.com/rlfosHp.png"
       ],
       "github": "https://github.com/Jeann1809/reinforcement-learning-snake"
+    },
+    {
+      "id": 6,
+      "period": "September 2025",
+      "title": "Real-Time Multilingual Chat Platform",
+      "description": "Developed a full-stack real-time chat application with AI-powered translation and message encryption. Built with Next.js frontend and Node.js backend, featuring Google Gemini AI integration for seamless multi-language communication and AES-256-CBC encryption for secure messaging.",
+      "techStack": [
+        "Next.js 14",
+        "React 18", 
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "Socket.IO",
+        "Google Gemini AI",
+        "JWT Authentication",
+        "AES-256-CBC Encryption",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "bcryptjs"
+      ],
+      "features": [
+        "Real-time messaging with Socket.IO integration",
+        "AI-powered translation using Google Gemini API supporting 12+ languages",
+        "AES-256-CBC message encryption for secure communication",
+        "Multi-step user registration with native language selection",
+        "JWT-based authentication with secure password hashing",
+        "Responsive three-column chat interface design",
+        "Chat management (create, delete, list conversations)",
+        "Message history with pagination and infinite scroll",
+        "Modern UI with dark mode support using shadcn/ui components",
+        "RESTful API with comprehensive error handling"
+      ],
+      "achievements": [
+        "Implemented secure end-to-end message encryption using Node.js crypto module",
+        "Integrated Google Gemini AI for real-time translation across multiple languages",
+        "Built scalable real-time architecture with Socket.IO for instant messaging",
+      ],
+      "images": [
+        "https://i.imgur.com/yFhA64M.png",
+        "https://i.imgur.com/oxbZKF2.png",
+        "https://i.imgur.com/q4tM7Qo.png",
+        "https://i.imgur.com/nBHDQgE.png"
+      ],
+      "github": "https://github.com/your-username/AnyTongue"
     }
   ]
 
@@ -413,6 +458,11 @@ export default function Home() {
                        Reinforcement Learning • 2025
                      </span>
                    )}
+                   {project.id === 6 && (
+                     <span className="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
+                       Full-Stack Hackathon Project • 2025
+                     </span>
+                   )}
                  </div>
                  <h3 className="text-lg sm:text-xl font-elegant font-semibold text-charcoal mb-3">{project.title}</h3>
                  <p className="text-xs sm:text-sm text-gray-500 font-sans font-medium mb-3 sm:mb-4">{project.period}</p>
@@ -440,14 +490,33 @@ export default function Home() {
              <div className="w-20 sm:w-24 h-1 bg-white mx-auto"></div>
            </div>
            
+           {/* Circular Image */}
            <div className={`mb-8 sm:mb-12 transition-all duration-1000 delay-400 ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+             <div className="flex justify-center">
+               <div className="relative w-48 h-48 sm:w-56 sm:h-56">
+                 <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                   <Image 
+                     src="/Jean.jpeg" 
+                     alt="Jean Almario" 
+                     width={224} 
+                     height={224}
+                     className="w-full h-full object-cover"
+                   />
+                 </div>
+                 {/* Decorative ring */}
+                 <div className="absolute inset-0 rounded-full border-4 border-white/30 scale-105"></div>
+               </div>
+             </div>
+           </div>
+           
+           <div className={`mb-8 sm:mb-12 transition-all duration-1000 delay-600 ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}>
              <p className="text-base sm:text-xl text-gray-300 font-sans font-light leading-relaxed max-w-2xl mx-auto px-2">
                I&apos;m always interested in new opportunities and exciting projects. 
                Choose your preferred way to get in touch.
              </p>
            </div>
            
-           <div className={`grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-1 transition-all duration-1000 delay-600 ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}>
+           <div className={`grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-1 transition-all duration-1000 delay-800 ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}>
              {/* Email Button */}
              <button 
                onClick={handleEmailClick}
