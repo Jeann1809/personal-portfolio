@@ -3,6 +3,7 @@ import './globals.css'
 export const metadata = {
   title: 'Jean Almario',
   description: 'Developer portfolio showcasing projects and skills with elegant design',
+  authors: [{ name: 'Jean Almario', url: 'https://www.linkedin.com/in/jean-almario-7238301ab' }],
 }
 
 export default function RootLayout({ children }) {
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="author" content="Jean Almario" />
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
