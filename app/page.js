@@ -9,6 +9,7 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeFilter, setActiveFilter] = useState('All')
   const [alertConfig, setAlertConfig] = useState({
     isOpen: false,
     title: '',
@@ -24,6 +25,43 @@ export default function Home() {
 
   // Project data
   const projects = [
+    {
+      "id": 7,
+      "period": "October 2025",
+      "title": "AGENTIFY WEB — Multi-Agent AI Website Generation Platform (HackTX Prize Winner)",
+      "description": "Developed an AI-powered full-stack platform that generates and deploys complete React websites from natural language descriptions using a multi-agent architecture.",
+      "techStack": [
+        "Next.js",
+        "Node.js",
+        "DigitalOcean AI Agents API",
+        "GitHub API",
+        "TailwindCSS",
+        "NextAuth.js"
+      ],
+      "features": [
+        "Multi-agent system coordinating code generation, project setup, and deployment",
+        "Real-time dashboard with live website preview and status feedback",
+        "Automated GitHub repository creation and cloud deployment via DigitalOcean App Platform",
+        "Secure authentication using GitHub OAuth through NextAuth.js",
+        "Error handling, progress states, and retry mechanisms for reliable generation"
+      ],
+      "achievements": [
+        "🏆 Won prize at HackTX 2025 (UT Austin) for AI innovation and automation",
+        "Reduced website creation time from hours to minutes using AI automation",
+        "Successfully deployed multiple websites with one-click deployment pipeline"
+      ],
+      "images": [
+        "https://i.imgur.com/2gkxPJS.jpeg",
+        "https://i.imgur.com/SUg1Xe9.png",
+        "https://i.imgur.com/3go80v1.png",
+        "https://i.imgur.com/C6Q7j9u.png",
+        "https://i.imgur.com/GGpyF7o.png",
+        "https://i.imgur.com/7Nsh0yb.png"
+      ],
+      "github": "https://github.com/HackTX-project2025/Project-frontend",
+      "videoDemo": "https://www.youtube.com/watch?v=EeUhtGfgEBQ",
+      "category": "AI/ML"
+    },
          {
        "id": 1,
        "period": "January 2025 - Present",
@@ -51,7 +89,8 @@ export default function Home() {
       "https://i.imgur.com/PBxCWfn.png"
     ],
     "github": "https://github.com/Jeann1809/crochet-frontend",
-    "visitPage": "https://www.marimarcrochet.com"
+    "visitPage": "https://www.marimarcrochet.com",
+    "category": "Web Development"
     },
     {
       "id": 2,
@@ -76,6 +115,7 @@ export default function Home() {
         'https://i.imgur.com/qzeGr5Q.png',
       ],
       "github": "https://github.com/Jeann1809/crochet-ecommerce-backend",
+      "category": "Backend"
 
     },
     {
@@ -105,7 +145,8 @@ export default function Home() {
         'https://i.imgur.com/AxPWr1Q.png',
         'https://i.imgur.com/xZP98a2.png'
       ],
-      github: 'https://github.com/Jeann1809/Wine-Quality-Predictor'
+      github: 'https://github.com/Jeann1809/Wine-Quality-Predictor',
+      category: 'AI/ML'
     },
     {
       id: 4,
@@ -132,7 +173,8 @@ export default function Home() {
         'https://i.imgur.com/4lZ5JTB.png',
         'https://i.imgur.com/CIjnFIR.png'
       ],
-      visitPage: 'https://hse-colombia.com'
+      visitPage: 'https://hse-colombia.com',
+      category: 'Professional'
     },
     {
       "id": 5,
@@ -156,7 +198,8 @@ export default function Home() {
       "images": [
         "https://i.imgur.com/rlfosHp.png"
       ],
-      "github": "https://github.com/Jeann1809/reinforcement-learning-snake"
+      "github": "https://github.com/Jeann1809/reinforcement-learning-snake",
+      "category": "AI/ML"
     },
     {
       "id": 6,
@@ -202,8 +245,10 @@ export default function Home() {
         "https://i.imgur.com/nBHDQgE.png"
       ],
       "githubFrontend": "https://github.com/Jeann1809/AnyTongueFrontend",
-      "githubBackend": "https://github.com/MEMOMG8/AnyTongueBackEnd"
+      "githubBackend": "https://github.com/MEMOMG8/AnyTongueBackEnd",
+      "category": "Web Development"
     }
+    
   ]
 
   const openProjectModal = (project) => {
@@ -227,6 +272,14 @@ export default function Home() {
       behavior: 'smooth' 
     })
   }
+
+  // Filter projects based on active filter
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter)
+
+  // Get unique categories for filter buttons
+  const categories = ['All', ...new Set(projects.map(project => project.category))]
 
   const handleEmailClick = async () => {
     try {
@@ -403,7 +456,7 @@ export default function Home() {
                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover-lift">
                  <h3 className="text-xl sm:text-2xl font-elegant font-semibold text-charcoal mb-4 sm:mb-6">Skills & Technologies</h3>
                  <div className="space-y-3 sm:space-y-4">
-                   {['Python', 'Java', 'C / C++', 'JavaScript', 'React','Next.js', 'Node.js', 'JWT', 'AWS'].map((skill, index) => (
+                   {['Python', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'AWS', 'Machine Learning', 'Git', 'RESTful APIs'].map((skill, index) => (
                      <div key={skill} className="flex items-center space-x-3">
                        <div className="w-2 h-2 bg-charcoal rounded-full"></div>
                        <span className="text-sm sm:text-base text-gray-700 font-sans font-medium">{skill}</span>
@@ -421,19 +474,41 @@ export default function Home() {
          <div className="max-w-6xl mx-auto">
            <div className={`text-center mb-12 sm:mb-20 transition-all duration-1000 delay-200 ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}>
              <h2 className="text-3xl sm:text-4xl md:text-5xl font-elegant font-semibold text-charcoal mb-4 sm:mb-6">
-               Featured Projects
+               My Work
              </h2>
-             <div className="w-20 sm:w-24 h-1 bg-charcoal mx-auto"></div>
+             <div className="w-20 sm:w-24 h-1 bg-charcoal mx-auto mb-8"></div>
+             
+             {/* Filter Buttons */}
+             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+               {categories.map((category) => (
+                 <button
+                   key={category}
+                   onClick={() => setActiveFilter(category)}
+                   className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-sans font-medium transition-all duration-300 ${
+                     activeFilter === category
+                       ? 'bg-charcoal text-white shadow-lg'
+                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-charcoal'
+                   }`}
+                 >
+                   {category}
+                 </button>
+               ))}
+             </div>
            </div>
            
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-             {projects.map((project, index) => (
+             {filteredProjects.map((project, index) => (
                <div 
                  key={project.id}
                  onClick={() => openProjectModal(project)}
                  className={`group bg-warm-gray p-6 sm:p-8 rounded-2xl transition-all duration-1000 delay-${(index + 1) * 200} hover-lift cursor-pointer relative overflow-hidden ${isLoaded ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}`}
                >
                  <div className="mb-4">
+                   {project.id === 7 && (
+                     <span className="inline-block bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
+                       🏆 HackTX Winner • AI Platform
+                     </span>
+                   )}
                    {project.id === 1 && (
                      <span className="inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full mb-3">
                        Deployed • 20+ Sales
