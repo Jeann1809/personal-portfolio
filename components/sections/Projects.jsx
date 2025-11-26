@@ -78,7 +78,7 @@ export function Projects() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 25 }}
                                 onClick={() => openModal(project)}
                                 className="group relative bg-card border border-border rounded-2xl overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                             >
