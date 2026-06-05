@@ -1,10 +1,25 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { experience } from "@/lib/data"
-import { Briefcase, Calendar } from "lucide-react"
+import { ExperienceModal } from "@/components/ui/ExperienceModal"
+import { Briefcase, Calendar, ArrowUpRight } from "lucide-react"
 
 export function Experience() {
+    const [selectedItem, setSelectedItem] = useState(null)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const openModal = (item) => {
+        setSelectedItem(item)
+        setIsModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+        setSelectedItem(null)
+    }
+
     return (
         <section id="experience" className="pt-20 pb-10 md:pt-32 md:pb-16 bg-background">
             <div className="container mx-auto px-4 md:px-6">
@@ -39,35 +54,34 @@ export function Experience() {
                                     {/* Timeline Dot (Desktop) */}
                                     <div className="hidden md:block absolute left-1/2 top-0 w-4 h-4 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background" />
 
-                                    {/* Content */}
-                                    <div className="md:w-[calc(50%-2rem)] bg-card p-6 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-                                        <div className="flex items-center gap-2 text-primary mb-2">
-                                            <Briefcase className="w-4 h-4" />
-                                            <span className="font-medium text-sm">{item.company}</span>
+                                    {/* Card */}
+                                    <div
+                                        onClick={() => openModal(item)}
+                                        className="group md:w-[calc(50%-2rem)] bg-card p-6 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                                    >
+                                        <div className="flex items-start justify-between gap-2 mb-2">
+                                            <div className="flex items-center gap-2 text-primary">
+                                                <Briefcase className="w-4 h-4 shrink-0" />
+                                                <span className="font-medium text-sm">{item.company}</span>
+                                            </div>
+                                            <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-foreground mb-1">{item.role}</h3>
+                                        <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                                            {item.role}
+                                        </h3>
 
                                         <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
                                             <Calendar className="w-4 h-4" />
                                             <span>{item.period}</span>
                                         </div>
 
-                                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">
                                             {item.description}
                                         </p>
 
-                                        <ul className="space-y-2 mb-4">
-                                            {item.achievements.map((achievement, i) => (
-                                                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                                    <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
-                                                    <span>{achievement}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-
                                         <div className="flex flex-wrap gap-2">
-                                            {item.techStack.map((tech) => (
+                                            {item.techStack.slice(0, 3).map((tech) => (
                                                 <span
                                                     key={tech}
                                                     className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-medium"
@@ -75,6 +89,11 @@ export function Experience() {
                                                     {tech}
                                                 </span>
                                             ))}
+                                            {item.techStack.length > 3 && (
+                                                <span className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-medium">
+                                                    +{item.techStack.length - 3}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
@@ -86,6 +105,12 @@ export function Experience() {
                     </div>
                 </div>
             </div>
+
+            <ExperienceModal
+                item={selectedItem}
+                isOpen={isModalOpen}
+                onClose={closeModal}
+            />
         </section>
     )
 }

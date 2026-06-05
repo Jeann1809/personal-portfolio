@@ -43,7 +43,7 @@ export function Contact() {
                     </p>
                 </motion.div>
 
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 md:items-stretch">
                     {/* Contact Methods */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -117,7 +117,7 @@ export function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="bg-card p-8 rounded-2xl border border-border shadow-lg"
+                        className="bg-card p-8 rounded-2xl border border-border shadow-lg h-full"
                     >
                         <form className="space-y-4">
                             <div>
