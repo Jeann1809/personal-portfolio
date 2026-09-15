@@ -1,126 +1,127 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
+import Image from "next/image"
+import { hero, stats } from "@/lib/data"
 
 export function Hero() {
-    const scrollToProjects = () => {
-        const element = document.getElementById('projects')
-        if (element) {
-            const offset = 80
-            const bodyRect = document.body.getBoundingClientRect().top
-            const elementRect = element.getBoundingClientRect().top
-            const elementPosition = elementRect - bodyRect
-            const offsetPosition = elementPosition - offset
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            })
-        }
-    }
-
-    return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            {/* Background Elements */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float delay-1000" />
+  return (
+    <div
+      className="flex w-full max-w-[1240px] flex-wrap gap-3.5 sm:gap-5"
+      style={{ minHeight: "min(calc(100dvh - 148px), 900px)" }}
+    >
+      {/* Main card: photo, name, bio, CTAs */}
+      <div className="flex flex-[3_1_460px] min-w-[min(300px,100%)] animate-reveal flex-col gap-5 rounded-2xl border border-black/[0.09] bg-card p-6 sm:p-10 md:p-12">
+        <div className="flex flex-wrap items-start gap-3 sm:gap-8">
+          <div className="flex min-w-[140px] flex-[1_1_140px] flex-col gap-3.5 sm:min-w-[190px] sm:flex-[1_1_190px] sm:gap-5">
+            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-green">
+              <span className="inline-block h-[7px] w-[7px] rounded-full bg-green" />
+              {hero.status}
             </div>
-
-            <div className="container mx-auto px-4 md:px-6 text-center z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-6"
-                >
-                    <h2 className="text-xl md:text-2xl text-muted-foreground font-light tracking-wide mb-2">
-                        Hello, I&apos;m
-                    </h2>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-foreground mb-6">
-                        Jean Almario
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-                        Computer Science Student & <span className="text-foreground font-medium">Full Stack Developer</span>
-                        <br className="hidden md:block" />
-                        passionate about building solutions that matter.
-                    </p>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-                >
-                    <button
-                        onClick={scrollToProjects}
-                        className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-primary-foreground bg-primary rounded-full overflow-hidden transition-all hover:shadow-lg hover:scale-105"
-                    >
-                        <span className="relative z-10 flex items-center gap-2">
-                            View My Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                    </button>
-
-                    <Link
-                        href="#contact"
-                        className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-foreground bg-background border border-border rounded-full hover:bg-accent transition-all hover:scale-105"
-                    >
-                        Contact Me
-                    </Link>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="flex items-center justify-center gap-6 text-muted-foreground"
-                >
-                    <a
-                        href="https://github.com/Jeann1809"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-foreground hover:scale-110 transition-all"
-                        aria-label="GitHub"
-                    >
-                        <Github className="w-6 h-6" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/jean-almario-7238301ab"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-foreground hover:scale-110 transition-all"
-                        aria-label="LinkedIn"
-                    >
-                        <Linkedin className="w-6 h-6" />
-                    </a>
-                    <a
-                        href="mailto:jalmario@ttu.edu"
-                        className="hover:text-foreground hover:scale-110 transition-all"
-                        aria-label="Email"
-                    >
-                        <Mail className="w-6 h-6" />
-                    </a>
-                </motion.div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            <h1
+              className="m-0 font-semibold leading-[0.94] tracking-[-0.035em] text-ink [overflow-wrap:anywhere]"
+              style={{ fontSize: "clamp(34px, 9vw, 92px)" }}
             >
-                <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center p-1">
-                    <motion.div
-                        animate={{ y: [0, 12, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                        className="w-1.5 h-1.5 bg-muted-foreground rounded-full"
-                    />
-                </div>
-            </motion.div>
-        </section>
-    )
+              {hero.name}
+            </h1>
+            <p
+              className="m-0 max-w-[26ch] leading-[1.35] text-muted"
+              style={{ fontSize: "clamp(15.5px, 2vw, 24px)", textWrap: "pretty" }}
+            >
+              {hero.tagline}
+            </p>
+          </div>
+          <Image
+            src={hero.photo}
+            alt={hero.name}
+            width={165}
+            height={206}
+            className="block min-w-[86px] flex-[1_1_86px] rounded-2xl border border-black/[0.09] bg-tint-2 object-cover"
+            style={{
+              width: "165px",
+              maxWidth: "min(165px, 38%)",
+              aspectRatio: "4 / 5",
+              objectPosition: "center 22%",
+            }}
+            priority
+          />
+        </div>
+        <p className="m-0 text-sm leading-[1.7] text-muted sm:text-base" style={{ textWrap: "pretty" }}>
+          {hero.bio}
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2.5">
+          <a
+            href="#work"
+            className="inline-flex min-h-[46px] items-center rounded-[9px] bg-green px-5 font-mono text-xs font-bold tracking-[0.08em] text-white hover:bg-ink"
+          >
+            VIEW WORK
+          </a>
+          <a
+            href={hero.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[46px] items-center rounded-[9px] border border-black/[0.16] px-5 font-mono text-xs tracking-[0.08em] text-ink hover:border-ink"
+          >
+            GITHUB
+          </a>
+          <a
+            href={hero.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[46px] items-center rounded-[9px] border border-black/[0.16] px-5 font-mono text-xs tracking-[0.08em] text-ink hover:border-ink"
+          >
+            LINKEDIN
+          </a>
+        </div>
+      </div>
+
+      {/* Right column: stat tiles + resume */}
+      <div className="flex min-w-[min(260px,100%)] flex-[2_1_300px] flex-col gap-3.5 sm:gap-5">
+        <div className="flex flex-1 animate-reveal flex-col justify-center gap-1.5 rounded-2xl border border-black/[0.09] bg-card p-6 sm:p-8">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-dark">GPA</div>
+          <div
+            className="font-mono font-bold leading-none tracking-[-0.04em] text-ink [font-variant-numeric:tabular-nums]"
+            style={{ fontSize: "clamp(40px, 5.6vw, 66px)" }}
+          >
+            {stats.gpa.value}
+            <span className="text-[0.42em] tracking-normal text-muted-dark"> {stats.gpa.scale}</span>
+          </div>
+          <div className="mt-1 text-[13px] text-muted">{stats.gpa.detail}</div>
+        </div>
+
+        <div className="flex flex-1 animate-reveal flex-col justify-center gap-1.5 rounded-2xl border border-black/[0.09] bg-card p-6 sm:p-8">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-dark">Expected graduation</div>
+          <div
+            className="font-mono font-bold leading-[1.05] tracking-[-0.03em] text-ink"
+            style={{ fontSize: "clamp(28px, 3.6vw, 44px)" }}
+          >
+            {stats.graduation}
+          </div>
+        </div>
+
+        <div className="flex flex-1 animate-reveal flex-col justify-center gap-3.5 rounded-2xl border border-black/[0.09] bg-card p-6 sm:p-8">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-dark">President&rsquo;s List</div>
+          <div className="flex flex-wrap gap-2">
+            {stats.presidentsList.map((term) => (
+              <span key={term} className="rounded-md bg-chip px-3 py-1.5 font-mono text-xs text-chip-text">
+                {term}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={hero.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-none animate-reveal items-center justify-between gap-3.5 rounded-2xl border border-green bg-green px-6 py-5 text-white transition-colors hover:border-ink hover:bg-ink sm:px-8 sm:py-7"
+        >
+          <span className="flex flex-col gap-1.5">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">PDF · 1 page</span>
+            <span className="text-lg font-semibold tracking-[-0.015em] text-white sm:text-xl">
+              Download my resume
+            </span>
+          </span>
+          <span className="text-xl leading-none text-white">↓</span>
+        </a>
+      </div>
+    </div>
+  )
 }
