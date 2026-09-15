@@ -49,7 +49,7 @@ export function Hero() {
         <div className="mt-2 flex flex-wrap gap-2.5">
           <a
             href="#work"
-            className="inline-flex min-h-[46px] items-center rounded-[9px] bg-green px-5 font-mono text-xs font-bold tracking-[0.08em] text-white hover:bg-ink"
+            className="inline-flex min-h-[46px] items-center rounded-[9px] bg-green px-5 font-mono text-xs font-bold tracking-[0.08em] text-white hover:bg-ink hover:text-white"
           >
             VIEW WORK
           </a>
