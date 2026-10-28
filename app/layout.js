@@ -1,5 +1,6 @@
 import './globals.css'
 import { Archivo, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${archivo.variable} ${jbMono.variable}`}>
       <body className="bg-paper text-ink font-sans antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )
